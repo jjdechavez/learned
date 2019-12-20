@@ -6,7 +6,11 @@ import { getTodo, resetGetTodoStatus } from '../actions/Todo';
 class TodosList extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log('constructore')
+  }
+  
+  componentDidMount() {
+    console.log('componentDidMount')
     this.props.getTodo();
   }
 
@@ -22,6 +26,7 @@ class TodosList extends React.Component {
   // }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate')
     if (this.props.status.sent) {
       console.log('didUpdate status.sent')
       this.props.resetGetTodoStatus();
@@ -34,6 +39,7 @@ class TodosList extends React.Component {
   }
 
   render() {
+    console.log('render')
     let { todos, getTodo, status } = this.props;
 
     return (
